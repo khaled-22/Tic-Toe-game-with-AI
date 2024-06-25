@@ -34,12 +34,13 @@ class Game:
 
     def draw_fig(self,row,col):
         ## First player will draw circle first
+        ## start_dsc = (col * SQSIZE + OFFSET, row * SQSIZE + OFFSET)
         if self.player == 1: 
             pygame.draw.circle(screen,GREEN,(int(col * 200 + 200 /2),int (row * 200 + 200 / 2)),CIRCLE_RADIUS,CIRCLE_WIDTH)            
         # draw cross 
         elif self.player == 2: 
-            pygame.draw.line(screen,BLUE,(col * 200 + SPACE ,row * 200 + 200 - SPACE),(col * 200 + 200 -SPACE, row * 200 + SPACE),LINE_WIDHT_CROSS)
-            pygame.draw.line(screen,BLUE,(col * 200 + SPACE ,row * 200 + SPACE),(col * 200 + 200 -SPACE, row * 200 + 200 - SPACE),LINE_WIDHT_CROSS)
+            pygame.draw.line(screen,CROSS_LINE_COLOR,(col * 200 + SPACE ,row * 200 + 200 - SPACE),(col * 200 + 200 -SPACE, row * 200 + SPACE),LINE_WIDHT_CROSS)
+            pygame.draw.line(screen,CROSS_LINE_COLOR,(col * 200 + SPACE ,row * 200 + SPACE),(col * 200 + 200 -SPACE, row * 200 + 200 - SPACE),LINE_WIDHT_CROSS)
         
 def main():    
     game = Game()
