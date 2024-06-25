@@ -1,8 +1,8 @@
-import numpy as np
 import pygame 
 import sys 
 from const import * 
 from board import Board
+from ai import AI
 ## 
 
 pygame.init()
@@ -15,6 +15,9 @@ class Game:
     def __init__(self):
         self.show_lines()
         self.player = 1
+        self.ai = AI()
+        self.gamemode = 'ai'
+        self.running = True
         self.board = Board()
 
 
@@ -27,6 +30,11 @@ class Game:
         ## Horizontal lines 
         pygame.draw.line(screen,LINE_COLOR,(0,SQSIZE),(WIDTH,SQSIZE),LINE_WIDTH)
         pygame.draw.line(screen,LINE_COLOR,(0,HEIGHT-SQSIZE),(WIDTH,HEIGHT-SQSIZE),LINE_WIDTH)
+
+    def make_move(self, row, col):
+        self.board.chose_a_square(row, col, self.player)
+        self.draw_fig(row, col)
+        self.next_turn()
 
 
     def next_turn(self): 
@@ -45,6 +53,7 @@ class Game:
 def main():    
     game = Game()
     board = game.board
+    ai = game.ai
     
     ## Main-loop
     while True: 
@@ -61,14 +70,27 @@ def main():
                 col = pos[0] // SQSIZE
                 print(row,col) ## 
                 
-                if board.avilable_square(row,col):
+                if board.available_square(row,col):
                     board.chose_a_square(row,col,1)
                     game.draw_fig(row,col)
                     game.next_turn()
                     print(board.squares)
+
         
-    
-    
-    
+        if game.gamemode == 'ai' and game.player == ai.player:
+            ## update screen    
+            pygame.display.update()
+            
+            ## ai methods
+            row,col = ai.evaluate(board)
+            game.make_move(row,col)
+            
+            
+            
+            board.chose_a_square(row, col, game.player)
+            game.draw_fig(row, col)
+            game.next_turn()
+
+        
         pygame.display.update()
 main()
