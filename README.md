@@ -1,4 +1,4 @@
-Tic-Toe-game-with-AI
+# Tic-Toe-game-with-AI
 
 Rules
 1.The game is played on a 3x3 grid.
@@ -10,4 +10,4 @@ This version of the game is improved with support to play against an AI. The AI 
 
 
 Screenshot of the game:
-<img width="299" alt="image" src="https://github.com/khaled-22/Tic-Toe-game-with-AI/assets/70975472/0f84cd68-e2ea-4567-9874-b0a9523b5ebb">
+<img width="150" alt="image" src="https://github.com/khaled-22/Tic-Toe-game-with-AI/assets/70975472/0f84cd68-e2ea-4567-9874-b0a9523b5ebb">
