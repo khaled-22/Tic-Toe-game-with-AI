@@ -1,14 +1,15 @@
 import pygame 
 import sys 
 from const import * 
-from board import Board
+import numpy as np
 from ai import AI
-## 
+from board import Board
 
 pygame.init()
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption("Tic-Toe")
-screen.fill(BG_COLOR)
+screen = pygame.display.set_mode( (WIDTH, HEIGHT) )
+pygame.display.set_caption('TIC TAC TOE AI')
+screen.fill( BG_COLOR )
+
 
 
 class Game: 
@@ -49,8 +50,16 @@ class Game:
         elif self.player == 2: 
             pygame.draw.line(screen,CROSS_LINE_COLOR,(col * 200 + SPACE ,row * 200 + 200 - SPACE),(col * 200 + 200 -SPACE, row * 200 + SPACE),LINE_WIDHT_CROSS)
             pygame.draw.line(screen,CROSS_LINE_COLOR,(col * 200 + SPACE ,row * 200 + SPACE),(col * 200 + 200 -SPACE, row * 200 + 200 - SPACE),LINE_WIDHT_CROSS)
+            
         
-def main():    
+def main():
+    
+    pygame.init()
+    screen = pygame.display.set_mode((WIDTH,HEIGHT))
+    pygame.display.set_caption("Tic-Toe")
+    screen.fill(BG_COLOR)
+    
+        
     game = Game()
     board = game.board
     ai = game.ai

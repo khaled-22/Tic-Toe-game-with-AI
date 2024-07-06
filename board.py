@@ -4,9 +4,11 @@ from const import *
 class Board: 
     def __init__(self):
         self.squares = np.zeros((ROW, COLS))
+        self.empty_sqrs = self.squares # [squares]
         self.marked_squares = 0
 
     def final_state(self):
+        
         for col in range(COLS): 
             if self.squares[0][col] == self.squares[1][col] == self.squares[2][col] != 0: 
                 return self.squares[0][col]

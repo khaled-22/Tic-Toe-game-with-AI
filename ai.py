@@ -1,6 +1,8 @@
 import random
 import math 
 import copy
+
+
 class AI: 
     def __init__(self, level=1, player=2):
         self.level = level
@@ -18,6 +20,7 @@ class AI:
     def minimax(self,board,maximizing_player): 
         # 1. check terminal cases 
         case = board.final_state()
+        
         if case == 1:
             return 1, None
         if case == 2:
@@ -34,12 +37,12 @@ class AI:
 
             for (row,col) in empty_sqrs:
                 temp_board = copy.deepcopy(board)
-                temp_board.chose_a_square(row,col,self.player)
+                temp_board.chose_a_square(row,col,1)
                 eval = self.minimax(temp_board,False)[0]
                 
                 if eval > max_eval:
                     max_eval = eval
-                    best_move = (row,col)
+                    best_move = (row, col)
             return max_eval, best_move
         
         
@@ -55,14 +58,16 @@ class AI:
                 eval = self.minimax(temp_board,True)[0]
                 if eval < min_eval:
                     min_eval = eval
-                    best_move = (row,col)
+                    best_move = (row, col)
+            
             return min_eval, best_move
 
 
     def evaluate(self, main_board):
         if self.level == 0:
-            move = self.random_choice(main_board)
             eval = 'random'
+            move = self.random_choice(main_board)
+
         else:
             eval, move = self.minimax(main_board, False)
    
