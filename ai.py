@@ -18,7 +18,7 @@ class AI:
     
     
     def minimax(self,board,maximizing_player): 
-        # 1. check terminal cases 
+        # 1. check the terminal cases 
         case = board.final_state()
         
         if case == 1:
