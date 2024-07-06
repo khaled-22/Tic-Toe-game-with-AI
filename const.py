@@ -3,14 +3,14 @@
 WIDTH = 600
 HEIGHT = 600
 
-# Background color
+# Background color for the board
 BG_COLOR = (0,153,153)
 LINE_COLOR = (76,0,153)
 
 
 # colors for circle and cross 
-GREEN = (0,255,0)
-CROSS_LINE_COLOR = (64,64,64)
+green_color = (0,255,0) # color for the x 
+CROSS_LINE_COLOR = (64,64,64) ## color for the cirle 
 
 ## Drawing the circle 
 CIRCLE_RADIUS = 40
